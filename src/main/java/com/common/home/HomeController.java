@@ -56,10 +56,9 @@ public class HomeController {
 	@RequestMapping(value="/views", method = RequestMethod.GET)
 	public String views() throws Exception {
 		try {
-		eventRecordService.createTables();
+			eventRecordService.createTables();
 		}catch(Exception e) {
 			e.printStackTrace();
-			
 		}
 		return "home/views";
 	}

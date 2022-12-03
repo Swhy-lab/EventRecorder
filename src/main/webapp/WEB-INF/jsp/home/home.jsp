@@ -5,11 +5,11 @@
 <div class="panel">
 	<div class="container">
 	<h1>
-		Simple History Manager
+		Event Recorder
 	</h1>
 	</div>
 	<div class="opacity-box" onclick="location.href='/EventRecorder/views';">
-		<P> made by SeungY</P>
+		<P>Logs from other systems are received and stored</P>
 		<%-- <P>  The time on the server is ${serverTime}. </P> --%>
 	</div>
 </div>

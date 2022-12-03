@@ -1,4 +1,8 @@
 $(function(){
 	//$blockScreen.initialize();
-	//$menu.example();
+	$menu.set = {
+			'Record Viewer':(function(){
+				location.href="/EventRecorder/views";
+			})
+		}
 });

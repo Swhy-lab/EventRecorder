@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.common.home.dao.CommonDAO;
+import com.eventrecord.home.dao.EventRecordDAO;
+import com.eventrecord.home.service.EventRecordService;
 
 
 
@@ -21,17 +23,19 @@ import com.common.home.dao.CommonDAO;
  * Handles requests for the application home page.
  */
 @Controller
-@RequestMapping(value="/SimpleHistoryManager", method=RequestMethod.GET)
+@RequestMapping(value="/EventRecorder", method=RequestMethod.GET)
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	@Autowired
-	CommonDAO cdao;
+	private CommonDAO cdao;
+	@Autowired
+	private EventRecordService eventRecordService;
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) throws Exception {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
@@ -49,7 +53,16 @@ public class HomeController {
 		}
 		return "home/home";
 	}
-	
+	@RequestMapping(value="/views", method = RequestMethod.GET)
+	public String views() throws Exception {
+		try {
+		eventRecordService.createTables();
+		}catch(Exception e) {
+			e.printStackTrace();
+			
+		}
+		return "home/views";
+	}
 	@ResponseBody
 	@RequestMapping(value = "/error", method = RequestMethod.GET)
 	public String error(Locale locale, Model model) {

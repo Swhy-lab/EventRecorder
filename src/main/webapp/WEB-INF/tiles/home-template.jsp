@@ -13,12 +13,13 @@
 	<tiles:insertAttribute name="base" />
 </head>
 <body>	
-
 	<tiles:insertAttribute name="head" />
+	<div id="content-no-head">
 		<tiles:insertAttribute name="html" />
-	
-	<tiles:insertAttribute name="footer" />
-	
+	</div>
+	<div id="footer">
+		<tiles:insertAttribute name="footer" />
+	</div>
 </body>
 
 </html>

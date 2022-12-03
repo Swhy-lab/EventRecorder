@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.common.home.mapper.EventRecordMapper">	
+	<update id="createEventRecordTable">
+		CREATE TABLE IF NOT EXISTS EventRecord(
+			er_id int primary key,
+			create_date Timestamp,
+			ip text,
+			type text,
+			contents text
+		)
+	</update>
+
+</mapper>

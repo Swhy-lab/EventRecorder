@@ -9,7 +9,7 @@
 	</h1>
 	</div>
 	<div class="opacity-box" onclick="location.href='/EventRecorder/views';">
-		<P>Logs from other systems are received and stored</P>
+		<P>Receive and save logs from other systems.</P>
 		<%-- <P>  The time on the server is ${serverTime}. </P> --%>
 	</div>
 </div>

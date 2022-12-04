@@ -3,12 +3,44 @@
 <mapper namespace="com.common.home.mapper.EventRecordMapper">	
 	<update id="createEventRecordTable">
 		CREATE TABLE IF NOT EXISTS EventRecord(
-			er_id int primary key,
-			create_date Timestamp,
+			er_id INTEGER primary key AUTOINCREMENT,
+			createDate timestamp,
 			ip text,
 			type text,
-			contents text
+			content text
 		)
 	</update>
-
+	<select id="getRecordList" parameterType="SearchParameter" resultType="EventRecord">
+		SELECT *
+		FROM EventRecord
+	</select>
+	<select id="getRecordListCount" parameterType="SearchParameter" resultType="int">
+		SELECT count(*)
+		FROM EventRecord
+	</select>
+	<select id="getRecord" parameterType="SearchParameter" resultType="EventRecord">
+		SELECT *
+		FROM EventRecord
+	</select>
+	<insert id="addEventRecord" parameterType="EventRecord">
+		INSERT INTO EventRecord (
+			<if test="er_id > 0">
+				er_id,
+			</if>
+			createDate,
+			ip,
+			type,
+			content
+		) VALUES (
+			<if test="er_id > 0">
+				#{er_id},
+			</if>
+			#{stringDate},
+			#{ip},
+			#{type},
+			#{content}
+		)
+		
+		
+	</insert>
 </mapper>

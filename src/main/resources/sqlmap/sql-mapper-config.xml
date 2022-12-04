@@ -9,6 +9,7 @@
 	
 	<typeAliases>
    		<package name="com.common.home.domain"/>
+   		<package name="com.eventrecord.home.domain"/>
 	</typeAliases> 
     
     

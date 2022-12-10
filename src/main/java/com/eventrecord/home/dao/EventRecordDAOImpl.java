@@ -7,7 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.eventrecord.home.domain.EventRecord;
-import com.eventrecord.home.domain.SearchParameter;
+import com.eventrecord.home.utils.FunctionStore.SearchParameter;
+
 
 @Repository
 public class EventRecordDAOImpl implements EventRecordDAO{
@@ -23,14 +24,14 @@ public class EventRecordDAOImpl implements EventRecordDAO{
 	}
 
 	@Override
-	public List<EventRecord> getRecordList(SearchParameter searchParam) {
+	public List<EventRecord> getEventRecordList(SearchParameter searchParam) {
 		// TODO Auto-generated method stub
 		String methodName = Namespace + "." + new Object(){}.getClass().getEnclosingMethod().getName();
 		return sqlSession.selectList(methodName, searchParam);
 	}
 
 	@Override
-	public int getRecordListCount(SearchParameter searchParam) {
+	public int getEventRecordListCount(SearchParameter searchParam) {
 		// TODO Auto-generated method stub
 		String methodName = Namespace + "." + new Object(){}.getClass().getEnclosingMethod().getName();
 		return sqlSession.selectOne(methodName, searchParam);

@@ -31,7 +31,7 @@
 	word-break: break-all;
 }
 
-table{
+table {
   display:table;
   table-layout:fixed;
 }
@@ -40,18 +40,33 @@ div.table-box {
 	background-color:rgba(22, 22, 22, 0.8);
 	padding:2vh;
 }
-ul.item-box{
+ul.item-box {
 	max-height:80vh;
 	 list-style:none;
 	     padding-left: 0px;
 	     font-size:2vh;
 }
-li.item{
+li.item {
 	background-color: rgba(200,200,200,0.5);
     padding: 1em;
     border-radius: 0.5rem;
     margin: 10px 0;
 }
+li.item > div > .content {
+	color: wheat;
+}
+
+li.item-empty {
+	width:100%;
+	min-height:80vh;
+	display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    /* align-content: center; */
+    justify-content: center;
+    align-items: center;
+}
+
 div.li-first-info{
 	display: flex;
     flex-direction: row;

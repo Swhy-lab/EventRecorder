@@ -10,15 +10,16 @@
 			content text
 		)
 	</update>
-	<select id="getRecordList" parameterType="SearchParameter" resultType="EventRecord">
+	<select id="getEventRecordList" parameterType="com.eventrecord.home.utils.FunctionStore$SearchParameter" resultType="EventRecord">
 		SELECT *
 		FROM EventRecord
+		order by createDate desc
 	</select>
-	<select id="getRecordListCount" parameterType="SearchParameter" resultType="int">
+	<select id="getEventRecordListCount" parameterType="com.eventrecord.home.utils.FunctionStore$SearchParameter" resultType="int">
 		SELECT count(*)
 		FROM EventRecord
 	</select>
-	<select id="getRecord" parameterType="SearchParameter" resultType="EventRecord">
+	<select id="getRecord" parameterType="com.eventrecord.home.utils.FunctionStore$SearchParameter" resultType="EventRecord">
 		SELECT *
 		FROM EventRecord
 	</select>
@@ -40,7 +41,5 @@
 			#{type},
 			#{content}
 		)
-		
-		
 	</insert>
 </mapper>

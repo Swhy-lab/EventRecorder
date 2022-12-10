@@ -18,7 +18,7 @@ public class EventRecord {
 	String stringDate;
 	
 	public void setDate(Date date) {
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 		createDate = date;
 		stringDate = simpleDateFormat.format(date); 
 	}	

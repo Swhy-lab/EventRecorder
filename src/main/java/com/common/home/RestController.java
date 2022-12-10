@@ -20,8 +20,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.common.home.dao.CommonDAO;
 import com.eventrecord.home.dao.EventRecordDAO;
+import com.eventrecord.home.domain.EventRecord;
 import com.eventrecord.home.service.EventRecordService;
 import com.eventrecord.home.utils.Obj2Json;
+import com.eventrecord.home.utils.FunctionStore.PageParameter;
+import com.eventrecord.home.utils.FunctionStore.SearchParameter;
 
 
 
@@ -54,6 +57,25 @@ public class RestController {
 		}
 		return Obj2Json.toJSONString(res);
 	}
-	
+	@ResponseBody
+	@RequestMapping(value = "/get-record-data-list", method = RequestMethod.POST)
+	public String getRecordDataList(HttpServletResponse response) throws Exception {
+		Map<String, String> res = new HashMap<String, String>();
+		PageParameter<EventRecord> page = null;
+		try {			
+			
+			SearchParameter searchParameter = new SearchParameter();			
+			page = eventRecordService.getEventRecordPages(searchParameter);
+			
+			
+		}catch(Exception e) {
+			res.put("msg", "failed");
+			logger.error("/get-record-data-list : "+e.getMessage());
+			response.setStatus(HttpStatus.SC_FORBIDDEN);
+			e.printStackTrace();
+			return Obj2Json.toJSONString(res);
+		}
+		return Obj2Json.toJSONString(page);
+	}
 	
 }

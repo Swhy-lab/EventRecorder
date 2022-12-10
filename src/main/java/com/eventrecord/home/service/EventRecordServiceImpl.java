@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -16,6 +17,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.eventrecord.home.dao.EventRecordDAO;
 import com.eventrecord.home.domain.EventRecord;
 import com.eventrecord.home.utils.Obj2Json;
+import com.eventrecord.home.utils.FunctionStore.PageParameter;
+import com.eventrecord.home.utils.FunctionStore.SearchParameter;
 
 @Service
 public class EventRecordServiceImpl implements EventRecordService{
@@ -34,6 +37,7 @@ public class EventRecordServiceImpl implements EventRecordService{
 		// TODO Auto-generated method stub
 		
 	}
+	
 	@Transactional(isolation=Isolation.READ_COMMITTED)
 	@Override
 	public void addExampleEventRecord() throws Exception {
@@ -47,5 +51,14 @@ public class EventRecordServiceImpl implements EventRecordService{
 		eventRecord.setContent(Obj2Json.toJSONString(map));
 		eventRecord.setType("TEST");
 		eventRecordDao.addEventRecord(eventRecord);
+	}
+
+	@Override
+	public PageParameter<EventRecord> getEventRecordPages(SearchParameter searchParameter) throws Exception {
+		// TODO Auto-generated method stub
+		PageParameter<EventRecord> page = new PageParameter<EventRecord>();
+		page.setList(eventRecordDao.getEventRecordList(null));
+		page.setCount(eventRecordDao.getEventRecordListCount(null));
+		return page;
 	}
 }

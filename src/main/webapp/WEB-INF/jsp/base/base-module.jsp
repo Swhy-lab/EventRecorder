@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="/resources/assets/css/home.css"/>
 
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script src="https://malsup.github.io/jquery.blockUI.js"></script>
 <script src="/resources/assets/js/home.js"></script>
 <script src="/resources/assets/js/base-layer.js"></script>
 <!-- 

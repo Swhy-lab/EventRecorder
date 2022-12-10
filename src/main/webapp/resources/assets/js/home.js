@@ -10,9 +10,9 @@ $(function(){
 					url:'/EventRecorder/rest/add-test-data',
 					type:'POST',
 					success:function(){
-						
-					},error:function(){
-						
+						alert('성공');
+					},error:function(data){
+						alert(data.responseJSON.msg);
 					},complete:function(){
 						
 					}
